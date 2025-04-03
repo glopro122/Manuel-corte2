@@ -16,7 +16,7 @@ class LinkedList:
         else:
             self.tail.next = new_node
             self.tail = new_node
-            print (self.tail.id)
+            print (self.tail.data)  # Cambiar 'id' a 'data'
 
     # Método para agregar un nodo al final de la lista con un append
     def append(self, valor): 
@@ -53,7 +53,7 @@ class LinkedList:
         current = self.head
         previous = None
         while current is not None:
-            if current.id == valor:
+            if current.data == valor:  # Cambiar 'id' a 'data'
                 if previous is None:
                     self.head = current.next  # Cambiar 'head' de la lista
                 else:
@@ -61,24 +61,24 @@ class LinkedList:
                 del current
                 return
             previous = current
-            current = current.siguiente
+            current = current.next  # Cambiar 'siguiente' a 'next'
         print("Valor no encontrado en la lista.")
 
-# Método para eliminar un nodo de la lista
+    # Método para eliminar un nodo de la lista
     def delete_value(self, search_value):
         if self.head is None:
             return "Lista vacia"
-        if self.head.id == search_value:
+        if self.head.data == search_value:  # Cambiar 'id' a 'data'
             self.head = self.head.next
         current = self.head
         while current is not None and current.next is not None:
-            if current.next.id == search_value:
+            if current.next.data == search_value:  # Cambiar 'id' a 'data'
                 current.next = current.next.next
             current = current.next
         return "Valor no encontrado en la lista."
 
     # Método para ordenar la lista
-    #def ordenar_lista(self):
+    # def ordenar_lista(self):
     #   if self.head is None:
     #        return
     #    current = self.head
@@ -90,10 +90,10 @@ class LinkedList:
     #                current.next, index.next = index.next, current.next
     #                if current == self.head:  # Si current es la cabeza, actualizamos la cabeza de la lista
     #                    self.head = index
-    #                elif index == self.head:  # Si index es la cabeza, actualizamos la cabeza de la lista
+    #                elif index == la cabeza, actualizamos la cabeza de la lista
     #                    self.head = current
-    #            index = index.siguiente
-    #        current = current.siguiente
+    #            index = index.next
+    #        current = current.next
 
     # Metodo para ordenar la lista de manera ascendete:
     def ordenar(self):
@@ -104,7 +104,7 @@ class LinkedList:
             while current is not None:
                 t_before = before
                 t_current = current
-                if before.price > current.price: # "> a <": <--- Cambiar esta comparacion cambia el sentido del ordenamiento, sea de menor a mayor o de mayor a menor
+                if before.price > current.price:  # "> a <": <--- Cambiar esta comparacion cambia el sentido del ordenamiento, sea de menor a mayor o de mayor a menor
                     next_before = before.next
                     before.next = current.next
                 if next_before == current:
@@ -132,7 +132,7 @@ class LinkedList:
         else: 
             current = self.head
             while current is not None:
-                if current.id == id:
+                if current.data == id:  # Cambiar 'id' a 'data'
                     return "Producto encontrado: " + str(current)
                 current = current.next
             return "Producto no encontrado"
@@ -158,20 +158,19 @@ Product2 = producto(2,"Mouse", 5)
 Product3 = producto(3,"Teclado", 15)
 product4 = producto(4,"Monitor", 20)
 
-#Ejemplos de uso por funcion:
-LinkedList1.add(Product1) # Utilizando el metodo add
+# Ejemplos de uso por funcion:
+LinkedList1.add(Product1)  # Utilizando el metodo add
 LinkedList1.add(Product2)
 LinkedList1.add(Product3)
 LinkedList1.add(product4)
 print("Lista original:")
 print(LinkedList1)
 print("---------------------------------------------------------------------------------------------------------------------------")
-LinkedList1.ordenar() # Utilizando el metodo ordenar
+LinkedList1.ordenar()  # Utilizando el metodo ordenar
 print("Lista ordenada:")
 print(LinkedList1)
-LinkedList1.delete_value(2) # Utilizando el metodo delete_value
+LinkedList1.delete_value(2)  # Utilizando el metodo delete_value
 print("---------------------------------------------------------------------------------------------------------------------------")
-print(LinkedList1.buscar_atributo("name", "Teclado")) # Utilizando el metodo buscar_atributo
+print(LinkedList1.buscar_atributo("name", "Teclado"))  # Utilizando el metodo buscar_atributo
 print("---------------------------------------------------------------------------------------------------------------------------")
-
-print(LinkedList1.buscar_id(3)) # Utilizando el metodo buscar_id
+print(LinkedList1.buscar_id(3))  # Utilizando el metodo buscar_id
