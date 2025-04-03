@@ -1,1 +1,0 @@
-# Manuel-corte2
