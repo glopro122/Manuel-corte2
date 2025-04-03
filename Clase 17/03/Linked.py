@@ -1,5 +1,5 @@
 from Nodo import Nodo
-from Product import producto
+from product import producto
 
 class LinkedList:
     # Constructor de la clase LinkedList

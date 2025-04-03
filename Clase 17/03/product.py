@@ -1,11 +1,11 @@
 from Nodo import Nodo
 
 class producto (Nodo):
-  def _init_(self,data,name,price):
-    super()._init_(data)
+  def __init__(self,data,name,price):
+    super().__init__(data)
     self.name=name
     self.price=price
     self.next=None
 
-  def _str_(self):
+  def __str__(self):
     return f"id_producto:{self.data} Producto:{self.data}, Price:{self.price}"
